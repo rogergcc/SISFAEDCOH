@@ -61,3 +61,7 @@
   max-width: 530px;
   margin: 0 auto;
 }
+
+.table>thead>tr>th{
+  font-size: 14px;
+}

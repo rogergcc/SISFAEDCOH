@@ -21,6 +21,7 @@ include("../seguridad/seguridad.php");
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="../assets/demo/demo.css" rel="stylesheet" />
 <link rel="stylesheet" href="../assets/css/jquery.dataTables.min.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
 </head>
 
 <body class="">
@@ -149,7 +150,7 @@ include("../seguridad/seguridad.php");
                         //recuperamos el codigo que viene por el url
                         $link = conectarse();                       
                         //declaramos la consulta
-                        $sql= "SELECT * FROM curso";                  
+                        $sql= "SELECT codigocurso,codigoprofesor,nombrecurso FROM curso";                  
                         //enviamos la consulta
                         $rs = mysqli_query(conectarse(),$sql) or die("Fallo la consulta");                    
                         //numero de resultados
@@ -165,7 +166,10 @@ include("../seguridad/seguridad.php");
                             ?>
                         </select>
                    </div>
-
+                    <div class="form-group">
+                          <label for="profe">Profe</label>
+                          <input type="text" class="form-control" name="profe" placeholder="Profesor del curso" required readonly="">               
+                        </div>
                    <div class="form-group">
                         <label for="curso">Profesor</label>
                         <select class="custom-select mr-sm-2" name="codigoprofesor">

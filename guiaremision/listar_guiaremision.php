@@ -20,7 +20,8 @@ include("../seguridad/seguridad.php");
   <link href="../assets/css/now-ui-dashboard.css?v=1.1.0" rel="stylesheet" />
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="../assets/demo/demo.css" rel="stylesheet" />
-<link rel="stylesheet" href="../assets/css/jquery.dataTables.min.css">
+
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
 </head>
 
 <body class="">
@@ -150,23 +151,25 @@ include("../seguridad/seguridad.php");
                 <table id="example2" class="table table-bordered table-striped table-responsive table-hover">
                 <thead class="text-center thead-dark">
                   <tr class="tabla">
-                      <th width="20"><font size=2>Codigo</th>
-                      <th width="20"><font size=2>Fecha Traslado</th>
-                      <th width="30"><font size=2>Punto de Partida</th>
-                      <th width="30"><font size=2>Punto de Llegada</th>
-                      <th width="30"><font size=2>Motivo del Traslado</th>
-                      <th width="90"><font size=2>Accesorios Transportados</th>
-                      <th width="40"><font size=2>Responsable del Traslado</th>
-                      <th width="30">#</th>  </font>   
+                      <th >Codigo</th>
+                      <th >Fecha Traslado</th>
+                      <th >Punto de Partida</th>
+                      <th >Punto de Llegada</th>
+                      <th >Motivo del Traslado</th>
+                      <th >Accesorios Transportados</th>
+                      <th >Responsable del Traslado</th>
+                      <th >#</th>    
                   </tr>
                 </thead>
+                <tbody>
                  <?php
                    $instruccion = "SELECT * FROM guiaremision";
                    $rs = mysqli_query(conectarse(),$instruccion) or die("Fallo la consulta");
                    $n = mysqli_num_rows($rs);
+
                    while($campo = mysqli_fetch_array($rs)){
                   ?>
-                <tbody>
+                
                   <tr>
                     <font size=2>
                     <th><?php echo $campo["codigoguiaremision"]; ?></th>
@@ -183,11 +186,12 @@ include("../seguridad/seguridad.php");
                       </th>
                       </font>
                   </tr>
-                </tbody>
+                
                   <?php
                    }
                    mysqli_close($link);
                   ?>
+                  </tbody>
                 </table>
                   </section>
 
@@ -230,12 +234,7 @@ include("../seguridad/seguridad.php");
   <script src="../assets/demo/demo.js"></script>
 <script src="../assets/js/general/general.js"></script>
 <script src="../assets/js/general/jquery.datatables.min.js"></script>
-  <script>
-    $(document).ready(function() {
-      // Javascript method's body can be found in assets/js/demos.js
-      demo.initGoogleMaps();
-    });
-  </script>
+  <script src=""></script>
 </body>
 
 

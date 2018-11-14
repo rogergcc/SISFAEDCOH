@@ -21,7 +21,8 @@ include("../seguridad/seguridad.php");
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="../assets/demo/demo.css" rel="stylesheet" />
 <link rel="stylesheet" href="../assets/css/jquery.dataTables.min.css">
-
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
 </head>
 
 <body class="">
@@ -166,7 +167,7 @@ include("../seguridad/seguridad.php");
                       <th width="30">#</th>  </font>   
                   </tr>
                 </thead>
-
+                <tbody>
                  <?php
                    //enviar consulta
                    $instruccion = "SELECT a.codigoaudiovisual, c.nombrecurso, p.nombreprofesor, a.equipoproduccion, a.produccion, a.genero,  a.fechaproduccion, a.sinopsis ,a.video, a.estado FROM audiovisual AS a INNER JOIN curso AS c INNER JOIN profesor AS p ON a.codigocurso=c.codigocurso and a.codigoprofesor=p.codigoprofesor";
@@ -179,9 +180,10 @@ include("../seguridad/seguridad.php");
                    
                    //devuelve una matriz que corresponde a la sentencia extraida, o falso si no 
                    //quedan mas filas
+
                    while($campo = mysqli_fetch_array($rs)){
                   ?>
-                <tbody>
+                
                   <tr>
                     <font size=2>
                     <th><?php echo $campo["codigoaudiovisual"]; ?></th>
@@ -201,12 +203,12 @@ include("../seguridad/seguridad.php");
                       </th>
                       </font>
                   </tr>
-                </tbody>
+                
                   <?php
                    }
                    //cerrar la conexion con la base de datos
                    mysqli_close($link);
-                  ?>
+                  ?></tbody>
                 </table>
                  
                 <!-- InstanceEndEditable -->

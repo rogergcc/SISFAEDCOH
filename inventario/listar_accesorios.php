@@ -21,8 +21,7 @@ include("../seguridad/seguridad.php");
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="../assets/demo/demo.css" rel="stylesheet" />
 
-  <link rel="stylesheet" href="../assets/css/jquery.dataTables.min.css">
-
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
 </head>
 
 <body class="">
@@ -179,19 +178,19 @@ include("../seguridad/seguridad.php");
                     }
                   ?>
 
-                <table id="example2" class="display" style="width:100%">
+                 <table id="example2" class="table table-bordered table-striped table-responsive table-hover">
                 <thead class="text-center thead-dark">
                   <tr class="tabla">
-                      <th width="50">Codigo</th>
-                      <th width="50">Bandeja</th>
-                      <th width="50">Codigo</th>
-                      <th width="50">Denominacion</th>
-                      <th width="30">Marca</th>
-                      <th width="90">Modelo</th>
-                      <th width="40">Serie</th>
-                      <th width="90">Observacion</th>
-                      <th width="40">Estado</th>
-                      <th width="30">#</th>    
+                      <th >Codigo</th>
+                      <th >Bandeja</th>
+                      <th >Codigo</th>
+                      <th >Denominacion</th>
+                      <th >Marca</th>
+                      <th >Modelo</th>
+                      <th >Serie</th>
+                      <th >Observacion</th>
+                      <th >Estado</th>
+                      <th >#</th>    
                   </tr>
                 </thead>
                 <tbody>
