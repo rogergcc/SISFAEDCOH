@@ -142,7 +142,7 @@ include("../seguridad/seguridad.php");
                     <div class="form-group">
                      <label for="curso">Curso</label>
                      <br>           
-                        <select class="custom-select mr-sm-2" name="codigocurso">
+                        <select class="custom-select mr-sm-2" name="codigocurso" id="cmbCurso">
                         <option selected>Escoge el curso</option>
                         <?php
                         //incluir modulo de conexion
@@ -150,7 +150,7 @@ include("../seguridad/seguridad.php");
                         //recuperamos el codigo que viene por el url
                         $link = conectarse();                       
                         //declaramos la consulta
-                        $sql= "SELECT codigocurso,codigoprofesor,nombrecurso FROM curso";                  
+                        $sql= "SELECT c.codigocurso,c.codigoprofesor,c.nombrecurso,p.nombreprofesor FROM curso c inner join Profesor p on c.codigoprofesor=p.codigoprofesor ";                  
                         //enviamos la consulta
                         $rs = mysqli_query(conectarse(),$sql) or die("Fallo la consulta");                    
                         //numero de resultados
@@ -160,7 +160,7 @@ include("../seguridad/seguridad.php");
                         {     
                             ?>
                             <option value="<?php echo $campo['codigocurso']?>"><?php echo $campo['nombrecurso'];?> </option>  
-                           <?php $x=$campo['codigoprofesor']?>
+                           
                             <?php                                    
                         }                      
                             ?>
@@ -168,27 +168,10 @@ include("../seguridad/seguridad.php");
                    </div>
                     <div class="form-group">
                           <label for="profe">Profe</label>
-                          <input type="text" class="form-control" name="profe" placeholder="Profesor del curso" required readonly="">               
+                          <input type="hidden" id="codigoprofesor" name="codigoprofesor">
+                          <input id="codProfe" type="text" class="form-control" name="profe" placeholder="Profesor del curso" required readonly="">               
                         </div>
-                   <div class="form-group">
-                        <label for="curso">Profesor</label>
-                        <select class="custom-select mr-sm-2" name="codigoprofesor">
-                        <option selected>Escoge el profesor</option>
-                        
-                        <?php
-                        $sql= "SELECT * FROM Profesor";                  
-                        $rs = mysqli_query(conectarse(),$sql) or die("Fallo la consulta");                    
-                        $n= mysqli_num_rows($rs);                        
-                        while($campo = mysqli_fetch_array($rs))
-                        {     
-                            ?>
-                            <option value="<?php echo $campo['codigoprofesor']?>"><?php echo $campo['nombreprofesor'];?> </option>                         
-                            <?php                                    
-                        }
-                        mysqli_close($link);
-                        ?>
-                        </select>
-                    </div>
+                  
               
                     <div class="form-group">
                     <label>Equipo Produccion:</label>
@@ -286,6 +269,42 @@ include("../seguridad/seguridad.php");
 <script src="../assets/js/general/jquery.datatables.min.js"></script>
   <script>
     $(document).ready(function() {
+    	$('#cmbCurso').change(function () {
+	     var optionSelected = $(this).find("option:selected");
+	     var valueSelected  = optionSelected.val();
+	     //var textSelected   = optionSelected.text();
+	     var ListaCursos=[];
+	        <?php
+	      	
+	      	$link = conectarse();                       
+			$sql= "SELECT c.codigocurso,c.codigoprofesor,c.nombrecurso,p.nombreprofesor FROM curso c inner join Profesor p on c.codigoprofesor=p.codigoprofesor";                  
+			$rs = mysqli_query(conectarse(),$sql) or die("Fallo la consulta");                    
+			$n= mysqli_num_rows($rs);
+			
+			while($campo = mysqli_fetch_array($rs))
+			{   
+				?> 
+				var profe={} ;
+				profe.codCurso = <?php echo $campo['codigocurso']?>; 
+				profe.codProfe = <?php echo $campo['codigoprofesor']?>; 
+				profe.nombreProfe= '<?php echo $campo['nombreprofesor']?>';                          
+                ListaCursos.push(profe);
+			<?php                                    
+			}
+			mysqli_close($link);
+			?>              
+			var CodigoSeleccionado = parseInt(valueSelected);
+			var result =[];
+			result = ListaCursos.filter(function(profe) {return profe.codCurso === CodigoSeleccionado});
+			//debugger;
+
+			$('#codigoprofesor').val("");
+			$('#codigoprofesor').val(result[0].codProfe);
+
+			$('#codProfe').val("");
+
+	     	$('#codProfe').val(result[0].nombreProfe);
+	 });
       // Javascript method's body can be found in assets/js/demos.js
       demo.initGoogleMaps();
     });
