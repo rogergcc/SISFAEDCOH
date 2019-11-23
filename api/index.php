@@ -41,7 +41,7 @@ if(isset($_GET['url'])){
 
                 switch($pagina){
                     case "accesorios";
-                            $resp = TodoslosRestaurantes();
+                            $resp = TodoslosAccesorios();
                             print_r(json_encode($resp) );
                             http_response_code(200);
                     break;
@@ -52,11 +52,7 @@ if(isset($_GET['url'])){
                             print_r(json_encode($resp) );
                             http_response_code(200);
                     break;
-                    case "accesorio/fotos/$numero";
-                            $resp = FotosRestaurantes($numero);
-                            print_r(json_encode($resp) );
-                            http_response_code(200);
-                    break;
+                 
                     default;
 
                 }
@@ -106,22 +102,23 @@ if(isset($_GET['url'])){
       }
   </style>
   <div class='container'>
-    <h1>Rutas</h1>
+    <h1>Faedcoh API</h1>
     <div class='divbody'>
 
-    <p>Restaurantes</p>
+    <p>API</p>
             <code>
-                POST /accesorio
+                <br>
+                POST /login
 
-                <p style="color: #cb2d2d;">Obligatorios</p>
+                <!-- <p style="color: #cb2d2d;">Obligatorios</p> -->
 
                       <!-- <br>RestauranteNombre
                       <br>RestauranteLogo
-                      <br>RestauranteDescripcion -->s
+                      <br>RestauranteDescripcion -->
                 <br>
-                <p style="color: #4448e2;">Opcional</p>
+                <!-- <p style="color: #4448e2;">Opcional</p>
                           <br>RestauranteRating
-                          <br>RestauranteUbicacion
+                          <br>RestauranteUbicacion -->
 
 
             </code>
@@ -129,8 +126,7 @@ if(isset($_GET['url'])){
                 GET /accesorios
                 <br/>
                 GET /accesorio/$id
-                <br>
-                GET /accesorio/fotos/$RestauranteId
+              
             </code>
 
     </div>

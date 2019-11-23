@@ -8,13 +8,9 @@
 
 require_once("db.php");
 
-function FotosRestaurantes($id){
-  $Query ="select * from restaurante_fotos where Estado = 'Activo' and RestauranteId = $id";
-  $Respuesta = ObtenerRegistros($Query);
-  return ConvertirUTF8($Respuesta);
-}
 
-function TodoslosRestaurantes(){
+
+function TodoslosAccesorios(){
     $Query = "select * from accesorio";
     $Respuesta = ObtenerRegistros($Query);
     //  print_r($Respuesta);
@@ -77,13 +73,6 @@ function loginUsuario($arrayjson){
 
 }
 function CrearRestaurante($array){
-
-            //$Nombre = $array[0]['RestauranteNombre']; 
-                // [{
-                // "RestauranteNombre": "Chicfasfa",
-                // "RestauranteLogo": "asf",
-                // "RestauranteDescripcion": "as descr"
-                // }]
 
             $Nombre = $array['RestauranteNombre'];
 
