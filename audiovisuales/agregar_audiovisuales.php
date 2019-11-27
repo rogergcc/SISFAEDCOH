@@ -139,38 +139,16 @@ include("../seguridad/seguridad.php");
 
                    
                     <form method="post" action="ingresar.php" enctype="multipart/form-data">
+
                     <div class="form-group">
-                     <label for="curso">Curso</label>
-                     <br>           
-                        <select class="custom-select mr-sm-2" name="codigocurso" id="cmbCurso">
-                        <option selected>Escoge el curso</option>
-                        <?php
-                        //incluir modulo de conexion
-                        include("../seguridad/conexion.php");                      
-                        //recuperamos el codigo que viene por el url
-                        $link = conectarse();                       
-                        //declaramos la consulta
-                        $sql= "SELECT c.codigocurso,c.codigoprofesor,c.nombrecurso,p.nombreprofesor FROM curso c inner join Profesor p on c.codigoprofesor=p.codigoprofesor ";                  
-                        //enviamos la consulta
-                        $rs = mysqli_query(conectarse(),$sql) or die("Fallo la consulta");                    
-                        //numero de resultados
-                        $n= mysqli_num_rows($rs);
-                        
-                        while($campo = mysqli_fetch_array($rs))
-                        {     
-                            ?>
-                            <option value="<?php echo $campo['codigocurso']?>"><?php echo $campo['nombrecurso'];?> </option>  
-                           
-                            <?php                                    
-                        }                      
-                            ?>
-                        </select>
-                   </div>
+                    <label for="curso">Curso</label>
+                    <input type="text" class="form-control" name="curso" placeholder="Ingrese nombre del curso" required>                  
+                    </div>
+
                     <div class="form-group">
-                          <label for="profe">Profe</label>
-                          <input type="hidden" id="codigoprofesor" name="codigoprofesor">
-                          <input id="codProfe" type="text" class="form-control" name="profe" placeholder="Profesor del curso" required readonly="">               
-                        </div>
+                    <label for="profesor">Profesor</label>
+                    <input type="text" class="form-control" name="profesor" placeholder="Ingrese nombre del profesor" required>             
+                    </div>
                   
               
                     <div class="form-group">

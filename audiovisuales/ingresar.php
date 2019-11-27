@@ -140,8 +140,8 @@ include("../seguridad/seguridad.php");
                 <?php 
                 //incluir modulo de conexion
                 include ("../seguridad/conexion.php");
-                $codigocurso=$_POST['codigocurso'];
-                $codigoprofesor=$_POST['codigoprofesor'];
+                $curso=$_POST['curso'];
+                $profesor=$_POST['profesor'];
                 $equipoproduccion=$_POST['equipoproduccion'];
                 $produccion=$_POST['produccion'];
                 $genero=$_POST['genero'];
@@ -175,7 +175,7 @@ include("../seguridad/seguridad.php");
                 
                 //nos conectamso a la BD y actualizamos el registro
                   $link = conectarse();
-                  $sql="INSERT INTO audiovisual (codigocurso, codigoprofesor, equipoproduccion, produccion, genero, fechaproduccion,  sinopsis, video, estado) VALUES ('$codigocurso', '$codigoprofesor', '$equipoproduccion', '$produccion', '$genero', '$fechaproduccion', '$sinopsis',  '$video', '$estado')";
+                  $sql="INSERT INTO audiovisual (curso, profesor, equipoproduccion, produccion, genero, fechaproduccion,  sinopsis, video, estado) VALUES ('$curso', '$profesor', '$equipoproduccion', '$produccion', '$genero', '$fechaproduccion', '$sinopsis',  '$video', '$estado')";
                   $result = mysqli_query($link,$sql) or die("Fallo la consulta");
                 
                  if($result==1)

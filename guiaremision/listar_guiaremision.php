@@ -55,10 +55,19 @@ include("../seguridad/seguridad.php");
               <p>Producto Audio Visual</p>
             </a>
           </li>
+
+
           <li class="active">
             <a href="../guiaremision/listar_guiaremision.php">
               <i class="now-ui-icons location_map-big"></i>
               <p>Guia Remision</p>
+            </a>
+          </li>
+
+          <li>
+            <a href="../reportes/reporte_guiaremision.php" target="_blank">
+               <i class="now-ui-icons media-2_sound-wave"></i>
+              <p>Reporte</p>
             </a>
           </li>
           
@@ -138,7 +147,7 @@ include("../seguridad/seguridad.php");
                  <section><!-- InstanceBeginEditable name="EditRegion1" -->
                  
 
-                  <a type="btn btn-secondary" href="agregar_guiaremision.php" class="btn btn-secondary btn-lg btn-block" >Agregar una nueva Guia de Remision</a>
+                  <a type="btn btn-secondary" href="agregar_guiaremision.php" class="btn btn-secondary btn-lg btn-block" >Registrar una nueva Guia de Remision</a>
 
                 
                   <?php

@@ -61,7 +61,14 @@ include("../seguridad/seguridad.php");
               <p>Guia Remision</p>
             </a>
           </li>
-          
+   
+          <li>
+            <a href="../inventario/imprimircodbarra.php">
+              <i class="now-ui-icons location_world"></i>
+              <p>Codigos de Barra </p>
+            </a>
+          </li>
+
           <li class="active-pro">
             <a href="#">
               <i class="now-ui-icons arrows-1_cloud-download-93"></i>
@@ -189,6 +196,7 @@ include("../seguridad/seguridad.php");
                       <th >Modelo</th>
                       <th >Serie</th>
                       <th >Observacion</th>
+					  <th >Imagen</th>
                       <th >Estado</th>
                       <th >#</th>    
                   </tr>
@@ -211,6 +219,8 @@ include("../seguridad/seguridad.php");
                       <th><?php echo $campoaccesorios["modelo"]; ?></th>
                       <th><?php echo $campoaccesorios['serie']; ?></th>
                       <th><?php echo $campoaccesorios['observacion']; ?></th>
+					            <th><img src="accesorios/<?php echo $campoaccesorios['imagen'];?>"></img></th>
+					 
                       <th><?php echo $campoaccesorios['estado']; ?></th>
                       <th>
                       <a class="btn btn-warning" href="modificar_accesorios.php?cod=<?php echo $campoaccesorios['codigoaccesorio']?>&codsala=<?php echo $codigosala?>&codbandeja=<?php echo $codigobandeja?>">Modificar</a>

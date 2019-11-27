@@ -62,13 +62,24 @@ include("../seguridad/seguridad.php");
               <p>Guia Remision</p>
             </a>
           </li>
-          
+
+          <li>
+            <a href="../reportes/reporte_audiovisuales.php" target="_blank">
+               <i class="now-ui-icons media-2_sound-wave"></i>
+              <p>Reporte</p>
+            </a>
+          </li>
+
           <li class="active-pro">
             <a href="#">
               <i class="now-ui-icons arrows-1_cloud-download-93"></i>
               <p>Versión 01</p>
             </a>
           </li>
+
+           
+          
+
         </ul>
       </div>
     </div>
@@ -170,7 +181,7 @@ include("../seguridad/seguridad.php");
                 <tbody>
                  <?php
                    //enviar consulta
-                   $instruccion = "SELECT a.codigoaudiovisual, c.nombrecurso, p.nombreprofesor, a.equipoproduccion, a.produccion, a.genero,  a.fechaproduccion, a.sinopsis ,a.video, a.estado FROM audiovisual AS a INNER JOIN curso AS c INNER JOIN profesor AS p ON a.codigocurso=c.codigocurso and a.codigoprofesor=p.codigoprofesor";
+                   $instruccion = "SELECT * FROM audiovisual";
                    
                    //envia una sentencia a la base activa en el servidor asociado en este caso a la sentencia sql
                    $rs = mysqli_query(conectarse(),$instruccion) or die("Fallo la consulta");
@@ -187,8 +198,8 @@ include("../seguridad/seguridad.php");
                   <tr>
                     <font size=2>
                     <th><?php echo $campo["codigoaudiovisual"]; ?></th>
-                      <th><?php echo $campo["nombrecurso"]; ?></th>
-                      <th><?php echo $campo["nombreprofesor"]; ?></th>
+                      <th><?php echo $campo["curso"]; ?></th>
+                      <th><?php echo $campo["profesor"]; ?></th>
                       <th><?php echo $campo["equipoproduccion"]; ?></th>
                       <th><?php echo $campo["produccion"]; ?></th>
                       <th><?php echo $campo["genero"]; ?></th>

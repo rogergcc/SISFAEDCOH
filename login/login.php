@@ -77,6 +77,7 @@
 					
 					</div>
 				</form>
+				<a class="btn btn-warning" href="registro_usuario.php">Registrarse</a>
 			</div>
 		</div>
 	</div>

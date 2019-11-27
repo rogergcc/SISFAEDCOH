@@ -23,7 +23,7 @@ include("../seguridad/seguridad.php");
 <link rel="stylesheet" href="../assets/css/jquery.dataTables.min.css">
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
 </head>
-
+ 
 <body class="">
   <div class="wrapper ">
     <div class="sidebar" data-color="orange">
@@ -61,6 +61,8 @@ include("../seguridad/seguridad.php");
               <p>Guia Remision</p>
             </a>
           </li>
+          
+          
           
           <li class="active-pro">
             <a href="#">

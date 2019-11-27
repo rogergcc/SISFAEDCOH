@@ -151,6 +151,19 @@ include("../seguridad/seguridad.php");
                 $modelo=$_POST['modelo'];
                 $serie=$_POST['serie'];
                 $observacion=$_POST['observacion'];
+				
+			         	if ($_FILES['imagen']["error"] > 0)
+                  {
+                  echo "Error: " . $_FILES['imagen']['error'] . "<br>";
+                }
+                else
+                {
+                   /*ahora co la funcion move_uploaded_file lo guardaremos en el destino que queramos*/
+                  move_uploaded_file($_FILES['imagen']['tmp_name'], "accesorios/".$_FILES['imagen']['name']);
+                } 
+                
+                $imagen=$_FILES['imagen']['name'];
+				
                 $estado=$_POST['estado'];
                
                 $link = conectarse();
@@ -162,6 +175,7 @@ include("../seguridad/seguridad.php");
                   modelo ='$modelo', 
                   serie ='$serie', 
                   observacion = '$observacion',
+				          imagen = '$imagen',
                   estado ='$estado'
                   WHERE codigoaccesorio='$codigoaccesorio'";
                   $rs = mysqli_query($link,$sql);

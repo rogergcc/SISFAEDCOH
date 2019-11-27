@@ -23,7 +23,7 @@ include("../seguridad/seguridad.php");
 <link rel="stylesheet" href="../assets/css/jquery.dataTables.min.css">
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
 </head>
-
+ 
 <body class="">
   <div class="wrapper ">
     <div class="sidebar" data-color="orange">
@@ -151,24 +151,40 @@ include("../seguridad/seguridad.php");
                 $modelo=$_POST['modelo'];
                 $serie=$_POST['serie'];
                 $observacion=$_POST['observacion'];
+				
+				
+				 /*controlamos la subida de la imagen grande*/
+                if ($_FILES['imagen']["error"] > 0)
+                  {
+                  echo "Error: " . $_FILES['imagen']['error'] . "<br>";
+                }
+                else
+                {
+                ?>
+                <h2>Registro Satisfactorio</h2>
+                <h3>Informacion del archivo</h3>
+                <?php
+                  echo "Nombre: " . $_FILES['imagen']['name'] . "<br>";
+                  echo "Tipo: " . $_FILES['imagen']['type'] . "<br>";
+                  echo "Tamaño: " . ($_FILES['imagen']['size'] / 1024) . " kB<br>";
+                
+                  
+                  /*ahora co la funcion move_uploaded_file lo guardaremos en el destino que queramos*/
+                  move_uploaded_file($_FILES['imagen']['tmp_name'], "accesorios/".$_FILES['imagen']['name']);
+                } 
+                
+                $imagen=$_FILES['imagen']['name'];
+				
                 $estado=$_POST['estado'];
 
                 
 
-                echo $codigobandeja."<br>";
-                echo $codigo."<br>";
-                echo $denominacion."<br>";
-                echo $marca."<br>";
-                echo $modelo."<br>";
-                echo $serie."<br>";
-                echo $observacion."<br>";
-                echo $estado."<br>";
 
                 
                 //nos conectamso a la BD y actualizamos el registro
                   $link = conectarse();
                  
-                  $sql="INSERT INTO accesorio (codigobandeja, codigo, denominacion, marca, modelo, serie, observacion, estado) VALUES ('$codigobandeja', '$codigo', '$denominacion', '$marca', '$modelo', '$serie', '$observacion', '$estado')";
+                  $sql="INSERT INTO accesorio (codigobandeja, codigo, denominacion, marca, modelo, serie, observacion, imagen, estado) VALUES ('$codigobandeja', '$codigo', '$denominacion', '$marca', '$modelo', '$serie', '$observacion', '$imagen', '$estado')";
                   $result = mysqli_query($link,$sql) or die("Fallo la consulta");
                 
                  

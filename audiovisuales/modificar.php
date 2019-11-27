@@ -142,8 +142,8 @@ include("../seguridad/seguridad.php");
                 //incluir modulo de conexion
                 include ("../seguridad/conexion.php");
                 $codigoaudiovisual=$_POST['codigo'];
-                $codigocurso=$_POST['codigocurso'];
-                $codigoprofesor=$_POST['codigoprofesor'];
+                $curso=$_POST['curso'];
+                $profesor=$_POST['profesor'];
                 $equipoproduccion=$_POST['equipoproduccion'];
                 $produccion=$_POST['produccion'];
                 $genero=$_POST['genero'];
@@ -165,8 +165,8 @@ include("../seguridad/seguridad.php");
                   //nos conectamso a la BD y actualizamos el registro
                 $link = conectarse();
                 $sql="UPDATE audiovisual SET 
-                  codigocurso ='$codigocurso',
-                  codigoprofesor ='$codigoprofesor',
+                  curso ='$curso',
+                  profesor ='$profesor',
                   equipoproduccion ='$equipoproduccion', 
                   produccion ='$produccion', 
                   genero ='$genero', 

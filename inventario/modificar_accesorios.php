@@ -31,7 +31,7 @@ include("../seguridad/seguridad.php");
         Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
     -->
    
-
+ 
 
       <div class="logo">
         <a href="../index.php" class="simple-text logo-mini">
@@ -185,7 +185,19 @@ include("../seguridad/seguridad.php");
                       <label>Observacion</label>
                       <textarea class="form-control" name="observacion" rows="3" equired> <?php echo $campo['observacion']?></textarea>
                     </div>
+					
+          					<label>Imagen</label>
+          					<div class="custom-file">  
 
+
+                      <input type="file"  id="imagen" name="imagen"  value="<?php echo $campo['imagen']?>"/ required>
+                      
+          
+                    
+
+
+                    </div>
+					
                     <div class="form-group">
                       <label>Estado</label>
                       <div class="custom-control custom-radio">

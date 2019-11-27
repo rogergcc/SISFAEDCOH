@@ -62,6 +62,13 @@ include("../seguridad/seguridad.php");
             </a>
           </li>
           
+          <li>
+            <a href="../inventario/imprimircodbarra.php">
+              <i class="now-ui-icons location_world"></i>
+              <p>Codigos de Barras Accesorios </p>
+            </a>
+          </li>
+          
           <li class="active-pro">
             <a href="#">
               <i class="now-ui-icons arrows-1_cloud-download-93"></i>
@@ -166,6 +173,7 @@ include("../seguridad/seguridad.php");
 
                   <a type="btn btn-info" href="listar_bandejas.php?cod=<?php echo $campo['codigosalatecnologica']?>" class="btn btn-info" ><?php echo $campo["nombresalatecnologica"];?></a>
               
+                 
 
                   <?php
                   }

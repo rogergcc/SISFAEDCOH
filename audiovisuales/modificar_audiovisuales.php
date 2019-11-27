@@ -145,7 +145,7 @@ include("../seguridad/seguridad.php");
                 $link = conectarse();
                 
                 //declaramos la consulta
-                $sql= "SELECT a.codigoaudiovisual, c.nombrecurso, p.nombreprofesor, a.equipoproduccion, a.produccion, a.genero, a.fechaproduccion, a.sinopsis, a.video, a.estado FROM audiovisual AS a INNER JOIN curso AS c INNER JOIN profesor AS p ON c.codigocurso=a.codigocurso AND p.codigoprofesor=a.codigoprofesor WHERE a.codigoaudiovisual= '$codigo'";
+                $sql= "SELECT * FROM audiovisual";
                 
                 //enviamos la consulta
                 $rs = mysqli_query(conectarse(),$sql) or die("Fallo la consulta");
@@ -161,58 +161,17 @@ include("../seguridad/seguridad.php");
                     
                     <input type="hidden" name="codigo"  value="<?php echo $codigo;?>" required/>
 
-                    <div class="form-group">
-                     <label for="curso">Curso</label>
-                     <br>           
-                        <select name="codigocurso">
-                        <?php   
-                        $sql= "SELECT * FROM curso";
-                        $rs = mysqli_query(conectarse(),$sql) or die("Fallo la consulta");
-                        $n= mysqli_num_rows($rs); 
-                        while($campocurso = mysqli_fetch_array($rs))
-                        {
-                          if($campo['nombrecurso']==$campocurso['nombrecurso'])
-                          {
-                            ?>
-                            <option selected value="<?php echo $campocurso['codigocurso']?>"><?php echo $campocurso['nombrecurso'];?> </option>    
-                             <?php
-                          }
-                          ?>
-                          <option value="<?php echo $campocurso['codigocurso']?>"><?php echo $campocurso['nombrecurso'];?> </option>
-                            <?php
-                        }                     
-                            ?>
-                        </select>
-                    </div>
-
+                    
 
                     <div class="form-group">
-                     <label for="curso">Profesor</label>
-                      <br>
-                       <select name="codigoprofesor">
-                        <?php   
-                        $sql= "SELECT * FROM profesor";
-                        $rs = mysqli_query(conectarse(),$sql) or die("Fallo la consulta");
-                        $n= mysqli_num_rows($rs); 
-                        while($campoprofesor = mysqli_fetch_array($rs))
-                        {
-                          if($campo['nombreprofesor']==$campoprofesor['nombreprofesor'])
-                          {
-                            ?>
-                            <option selected value="<?php echo $campoprofesor['codigoprofesor']?>"><?php echo $campoprofesor['nombreprofesor'];?> </option>    
-                             <?php
-                          }
-                          ?>
-                          <option value="<?php echo $campoprofesor['codigoprofesor']?>"><?php echo $campoprofesor['nombreprofesor'];?> </option>
-                            <?php
-                        }       
-                         mysqli_close($link);             
-                            ?>
-                       </select>
+                    <label for="curso">Curso</label>
+                    <input type="text" class="form-control" name="curso" value="<?php echo $campo['curso']?>"/ required>                  
                     </div>
 
-                     
-                     
+                    <div class="form-group">
+                    <label for="profesor">Profesor</label>
+                    <input type="text" class="form-control" name="profesor" value="<?php echo $campo['profesor']?>"/ required>             
+                    </div>
               
                     <div class="form-group">
                     <label>Equipo Produccion:</label>

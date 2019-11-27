@@ -23,7 +23,7 @@ include("../seguridad/seguridad.php");
 <link rel="stylesheet" href="../assets/css/jquery.dataTables.min.css">
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
 </head>
-
+ 
 <body class="">
   <div class="wrapper ">
     <div class="sidebar" data-color="orange">
@@ -190,7 +190,13 @@ include("../seguridad/seguridad.php");
                     <label>Observación</label>
                     <textarea class="form-control" name="observacion" rows="3"  placeholder="Ingrese su observación" required></textarea>
                     </div>
-
+          					
+                    <label>imagen</label>	
+          					<div class="custom-file">   
+                    <input type="file" class="custom-file-input" name="imagen" lang="es" required>
+                    <label class="custom-file-label" for="customFileLang">Seleccionar Archivo</label>
+                    </div>
+					
                     <div class="form-group">
                       <label>Estado</label>
                       <div class="custom-control custom-radio">
